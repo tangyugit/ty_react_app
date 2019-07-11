@@ -1,8 +1,9 @@
-const { override, fixBabelImports } = require('customize-cra');
+const { override, fixBabelImports, addPostcssPlugins } = require('customize-cra');
 
 module.exports = override(
    fixBabelImports('import', {
      libraryName: 'antd-mobile',
      style: 'css',
    }),
+   addPostcssPlugins([require('postcss-px2rem')({ remUnit: 75 })])
 );
